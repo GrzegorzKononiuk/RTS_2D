@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public float panSpeed = 20f;
-    public float panBorderThickness = 20f;
+    //public float panBorderThickness = 20f;
     // Start is called before the first frame update
     void Start()
     {

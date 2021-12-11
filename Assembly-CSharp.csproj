@@ -53,10 +53,9 @@
     <UnityVersion>2020.3.23f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MouseScripts\MouseController.cs" />
     <Compile Include="Assets\Scripts\CameraScripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Garbage\Click.cs" />
-    <Compile Include="Assets\Scripts\Garbage\ClickOn.cs" />
-    <Compile Include="Assets\Scripts\MouseScripts\TestClick.cs" />
+    <Compile Include="Assets\Scripts\UnitRTS.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
