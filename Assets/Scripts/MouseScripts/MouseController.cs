@@ -58,7 +58,6 @@ public class MouseController : MonoBehaviour
 
 
     }
-
     
     public static Vector3 GetMouseWorldPosition()
     {
@@ -66,6 +65,7 @@ public class MouseController : MonoBehaviour
         vec.z = 0f;
         return vec;
     }
+    
     public static Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera)
     {
         Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
