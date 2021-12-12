@@ -23,7 +23,8 @@ public class MouseController : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-        {   //Left Mouse Button Pressed
+        {   
+            //Left Mouse Button Pressed
             startPosition = GetMouseWorldPosition();
             
         }
@@ -32,13 +33,22 @@ public class MouseController : MonoBehaviour
             //LEft Mouse Button Released
             Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPosition, GetMouseWorldPosition());
             
+            //Deselect All Units
+        
+            foreach(UnitRTS unitRTS in selectedUnitRTSList)
+            {
+                unitRTS.SetSelectedVisible(false);
+            }
+       
             selectedUnitRTSList.Clear();
             
+            //Select units within Selection Area
             foreach(Collider2D collider2D in collider2DArray)
             {
                 UnitRTS unitRTS = collider2D.GetComponent<UnitRTS>();
                 if(unitRTS != null)
                 {
+                    unitRTS.SetSelectedVisible(true);
                     selectedUnitRTSList.Add(unitRTS);
                 }
             }

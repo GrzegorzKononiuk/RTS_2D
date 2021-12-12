@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class UnitRTS : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject selectedGameObject;
+
+    private void Awake()
     {
-        
+        selectedGameObject = transform.Find("Selected").gameObject;
+        SetSelectedVisible(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetSelectedVisible(bool visible)
     {
-        
+        selectedGameObject.SetActive(visible);
     }
 }
