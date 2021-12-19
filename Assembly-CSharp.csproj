@@ -56,6 +56,8 @@
     <Compile Include="Assets\Scripts\UnitRTS.cs" />
     <Compile Include="Assets\Scripts\MouseScripts\MouseController.cs" />
     <Compile Include="Assets\Scripts\CameraScripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\MouseScripts\BoxSelection.cs" />
+    <Compile Include="Assets\Scripts\DrawRect.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

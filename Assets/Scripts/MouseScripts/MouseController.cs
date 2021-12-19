@@ -6,7 +6,7 @@ public class MouseController : MonoBehaviour
 {
     [SerializeField] public Transform selectionAreaTransform;
     
-    private Vector3 startPosition;
+    private Vector2 startPosition;
     private List<UnitRTS> selectedUnitRTSList;
     
     private void Awake()
@@ -36,12 +36,12 @@ public class MouseController : MonoBehaviour
         if(Input.GetMouseButton(0))
         {
             // Left Mouse Button Held Down
-            Vector3 currentMousePosition = GetMouseWorldPosition();
-            Vector3 lowerLeft = new Vector3(
+            Vector2 currentMousePosition = GetMouseWorldPosition();
+            Vector2 lowerLeft = new Vector2(
                 Mathf.Min(startPosition.x, currentMousePosition.x),
                 Mathf.Min(startPosition.y, currentMousePosition.y)
             );
-            Vector3 upperRight = new Vector3(
+            Vector2 upperRight = new Vector2(
                 Mathf.Max(startPosition.x, currentMousePosition.x),
                 Mathf.Max(startPosition.y, currentMousePosition.y)
             );
