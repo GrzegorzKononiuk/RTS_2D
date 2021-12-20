@@ -21,6 +21,7 @@ public class DrawRect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             lineRend.positionCount = 4;
@@ -39,9 +40,11 @@ public class DrawRect : MonoBehaviour
             lineRend.SetPosition(2, new Vector2(currentMousePosition.x, currentMousePosition.y));
             lineRend.SetPosition(3, new Vector2(currentMousePosition.x, initialMousePosition.y));
 
-         
 
-            
+
+
         }
+       
     }
+   
 }

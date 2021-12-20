@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
-    [SerializeField] public Transform selectionAreaTransform;
+  
     
     private Vector2 startPosition;
     private List<UnitRTS> selectedUnitRTSList;
@@ -12,7 +12,7 @@ public class MouseController : MonoBehaviour
     private void Awake()
     {
         selectedUnitRTSList = new List<UnitRTS>();
-        selectionAreaTransform.gameObject.SetActive(false);
+       
         
     }
 
@@ -27,31 +27,17 @@ public class MouseController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            selectionAreaTransform.gameObject.SetActive(true);
+           
             //Left Mouse Button Pressed
             startPosition = GetMouseWorldPosition();
             
         }
      
-        if(Input.GetMouseButton(0))
-        {
-            // Left Mouse Button Held Down
-            Vector2 currentMousePosition = GetMouseWorldPosition();
-            Vector2 lowerLeft = new Vector2(
-                Mathf.Min(startPosition.x, currentMousePosition.x),
-                Mathf.Min(startPosition.y, currentMousePosition.y)
-            );
-            Vector2 upperRight = new Vector2(
-                Mathf.Max(startPosition.x, currentMousePosition.x),
-                Mathf.Max(startPosition.y, currentMousePosition.y)
-            );
-            selectionAreaTransform.position = lowerLeft;
-            selectionAreaTransform.localScale = upperRight - lowerLeft;
-        }
+       
        
         if (Input.GetMouseButtonUp(0))
         {
-            selectionAreaTransform.gameObject.SetActive(false);
+           
             //LEft Mouse Button Released
             Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPosition, GetMouseWorldPosition());
             

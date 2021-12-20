@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5C5EBDD5-609E-BED5-BB5F-5C60FA34ADA3}</ProjectGuid>
+    <ProjectGuid>{965A3383-0EA6-07BF-E411-C7635162FAFD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -55,9 +55,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UnitRTS.cs" />
     <Compile Include="Assets\Scripts\MouseScripts\MouseController.cs" />
-    <Compile Include="Assets\Scripts\CameraScripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\MouseScripts\BoxSelection.cs" />
     <Compile Include="Assets\Scripts\DrawRect.cs" />
+    <Compile Include="Assets\Scripts\CameraScripts\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
