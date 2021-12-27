@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnitRTS : MonoBehaviour
 {
     public GameObject selectedGameObject;
-
+    
     private void Awake()
     {
         selectedGameObject = transform.Find("Selected").gameObject;

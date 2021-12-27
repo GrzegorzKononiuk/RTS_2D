@@ -53,9 +53,10 @@
     <UnityVersion>2020.3.23f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\UnitRTS.cs" />
+    <Compile Include="Assets\Scripts\UnitsScripts\UnitRTS.cs" />
+    <Compile Include="Assets\Scripts\UnitsScripts\UnitMovement.cs" />
     <Compile Include="Assets\Scripts\MouseScripts\MouseController.cs" />
-    <Compile Include="Assets\Scripts\DrawRect.cs" />
+    <Compile Include="Assets\Scripts\MouseScripts\DrawRect.cs" />
     <Compile Include="Assets\Scripts\CameraScripts\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>

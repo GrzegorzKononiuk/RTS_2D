@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
-  
-    
     private Vector2 startPosition;
     private List<UnitRTS> selectedUnitRTSList;
-    
+   
     private void Awake()
     {
         selectedUnitRTSList = new List<UnitRTS>();
@@ -21,41 +19,43 @@ public class MouseController : MonoBehaviour
     {
        
     }
-   
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-           
+
             //Left Mouse Button Pressed
             startPosition = GetMouseWorldPosition();
-            
+
         }
-     
-       
-       
+
+
+
         if (Input.GetMouseButtonUp(0))
         {
-           
+
             //LEft Mouse Button Released
             Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPosition, GetMouseWorldPosition());
-            
+
             //Deselect All Units
-        
-            foreach(UnitRTS unitRTS in selectedUnitRTSList)
+
+            foreach (UnitRTS unitRTS in selectedUnitRTSList)
             {
                 unitRTS.SetSelectedVisible(false);
             }
-       
+
+
             selectedUnitRTSList.Clear();
-            
+
             //Select units within Selection Area
-            foreach(Collider2D collider2D in collider2DArray)
+            foreach (Collider2D collider2D in collider2DArray)
             {
                 UnitRTS unitRTS = collider2D.GetComponent<UnitRTS>();
-                if(unitRTS != null)
+                if (unitRTS != null)
                 {
+
                     unitRTS.SetSelectedVisible(true);
                     selectedUnitRTSList.Add(unitRTS);
                 }
@@ -63,8 +63,18 @@ public class MouseController : MonoBehaviour
             Debug.Log(selectedUnitRTSList.Count);
 
         }
+        if (Input.GetMouseButtonDown(1))
+        {
 
+            startPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        }
+        if ((Vector2)transform.position != startPosition)
+        {
+
+            Debug.Log("yoyooyo"); 
+
+        }
     }
     
     public static Vector3 GetMouseWorldPosition()

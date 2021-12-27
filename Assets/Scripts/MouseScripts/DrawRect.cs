@@ -24,7 +24,7 @@ public class DrawRect : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Clickggsgsgdsgsgseesesgsegegegsggeggesgesgesgesgegegegg"); 
+          
             lineRend.positionCount = 4;
             initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             lineRend.SetPosition(0, new Vector2(initialMousePosition.x, initialMousePosition.y));
@@ -37,7 +37,7 @@ public class DrawRect : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
            
-            Debug.Log("Draw"); 
+            
             currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             lineRend.SetPosition(0, new Vector2(initialMousePosition.x, initialMousePosition.y));
             lineRend.SetPosition(1, new Vector2(initialMousePosition.x, currentMousePosition.y));
