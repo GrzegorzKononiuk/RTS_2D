@@ -54,7 +54,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UnitsScripts\UnitRTS.cs" />
-    <Compile Include="Assets\Scripts\UnitsScripts\UnitMovement.cs" />
     <Compile Include="Assets\Scripts\MouseScripts\MouseController.cs" />
     <Compile Include="Assets\Scripts\MouseScripts\DrawRect.cs" />
     <Compile Include="Assets\Scripts\CameraScripts\CameraController.cs" />

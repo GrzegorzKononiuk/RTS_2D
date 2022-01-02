@@ -5,8 +5,9 @@ using UnityEngine;
 public class MouseController : MonoBehaviour
 {
     private Vector2 startPosition;
+    private Vector2 lastClickedPos;
     private List<UnitRTS> selectedUnitRTSList;
-   
+    public float speed = 10f;
     private void Awake()
     {
         selectedUnitRTSList = new List<UnitRTS>();
@@ -23,20 +24,22 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Left Mouse Button Pressed
         if (Input.GetMouseButtonDown(0))
         {
 
-            //Left Mouse Button Pressed
+           
             startPosition = GetMouseWorldPosition();
-
+            Debug.Log(startPosition + "startpoitn"); 
+            
         }
 
 
-
+        //Left Mouse Button Released
         if (Input.GetMouseButtonUp(0))
         {
 
-            //LEft Mouse Button Released
+            
             Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPosition, GetMouseWorldPosition());
 
             //Deselect All Units
@@ -63,16 +66,44 @@ public class MouseController : MonoBehaviour
             Debug.Log(selectedUnitRTSList.Count);
 
         }
+        //Right Mouse Button Pressed
         if (Input.GetMouseButtonDown(1))
         {
+            //KLIKNIECIA NIEPOWINIEN REJESTROWAC POKI NIE JEST ZAZNACZONY
+            // PRZED ZAZNACZENIEM... PRAWYM PRZYCISKIEM MYSZY KLIKAM I DOWOLNE MIEJSCE
+            // I PO ZAZNACZENIU OBIEKTU, ODRAZU W TO MIEJSCE LECI "LASTCLICKED" TO POWODUJE NAJPRAWDOPODOBNIE
 
-            startPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //JAK SPRAWDZIC ZROBIC NOWA INSTANCJE UNITRTS I SPRAWDZIC "SETSELECTED" ??
+
+            foreach (UnitRTS unitRTS in selectedUnitRTSList)
+            {
+                if (unitRTS.SetSelectedVisible(true))
+                {
+                    lastClickedPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    Debug.Log("last clicked pos" + lastClickedPos);
+                }
+            }
+
+           
+                  
+                   
+            
+      
+
+           
+            
+           
+            //Debug.Log("LAST CLICKED POS" + lastClickedPos);
+
+
+          
 
         }
-        if ((Vector2)transform.position != startPosition)
+        if ((Vector2)transform.position != lastClickedPos && selectedUnitRTSList.Count > 0)
         {
 
-            Debug.Log("yoyooyo"); 
+            float step = speed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, lastClickedPos, step);
 
         }
     }
