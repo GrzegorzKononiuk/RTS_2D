@@ -12,7 +12,7 @@ public class UnitRTS : MonoBehaviour
         SetSelectedVisible(false);
     }
 
-    //PRZEROBIONE NA BOOL Z VOIDA BYM MOGL W IFIE SPRAWDZIC 
+   
     public bool SetSelectedVisible(bool visible)
     {
         selectedGameObject.SetActive(visible);

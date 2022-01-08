@@ -48,7 +48,7 @@ public class MouseController : MonoBehaviour
             {
                 unitRTS.SetSelectedVisible(false);
             }
-
+            
 
             selectedUnitRTSList.Clear();
 
@@ -69,12 +69,7 @@ public class MouseController : MonoBehaviour
         //Right Mouse Button Pressed
         if (Input.GetMouseButtonDown(1))
         {
-            //KLIKNIECIA NIEPOWINIEN REJESTROWAC POKI NIE JEST ZAZNACZONY
-            // PRZED ZAZNACZENIEM... PRAWYM PRZYCISKIEM MYSZY KLIKAM I DOWOLNE MIEJSCE
-            // I PO ZAZNACZENIU OBIEKTU, ODRAZU W TO MIEJSCE LECI "LASTCLICKED" TO POWODUJE NAJPRAWDOPODOBNIE
-
-            //JAK SPRAWDZIC ZROBIC NOWA INSTANCJE UNITRTS I SPRAWDZIC "SETSELECTED" ??
-
+            
             foreach (UnitRTS unitRTS in selectedUnitRTSList)
             {
                 if (unitRTS.SetSelectedVisible(true))
@@ -83,23 +78,16 @@ public class MouseController : MonoBehaviour
                     Debug.Log("last clicked pos" + lastClickedPos);
                 }
             }
-
-           
-                  
-                   
-            
-      
-
-           
-            
-           
-            //Debug.Log("LAST CLICKED POS" + lastClickedPos);
-
-
-          
-
         }
-        if ((Vector2)transform.position != lastClickedPos && selectedUnitRTSList.Count > 0)
+        
+        //Right Mouse Button Released
+        if (Input.GetMouseButtonUp(1))
+        {
+            Debug.Log("Right RELESED"); 
+        }
+
+        //JESLI OBIEKTY MAJA KOORDYNATY INNE NIZ 0,0,0 TO DAZA DO NICH PO ODPALENIU PROGRAMU
+        if ((Vector2)transform.position != lastClickedPos && selectedUnitRTSList.Count >= 0)
         {
 
             float step = speed * Time.deltaTime;
