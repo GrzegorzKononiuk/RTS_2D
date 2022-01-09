@@ -7,7 +7,9 @@ public class MouseController : MonoBehaviour
     private Vector2 startPosition;
     private Vector2 lastClickedPos;
     private List<UnitRTS> selectedUnitRTSList;
+    public bool RightClick;
     public float speed = 10f;
+    
     private void Awake()
     {
         selectedUnitRTSList = new List<UnitRTS>();
@@ -79,23 +81,30 @@ public class MouseController : MonoBehaviour
                 }
             }
         }
-        
+      
         //Right Mouse Button Released
         if (Input.GetMouseButtonUp(1))
         {
+            RightClick = true;
             Debug.Log("Right RELESED"); 
         }
 
-        //JESLI OBIEKTY MAJA KOORDYNATY INNE NIZ 0,0,0 TO DAZA DO NICH PO ODPALENIU PROGRAMU
-        if ((Vector2)transform.position != lastClickedPos && selectedUnitRTSList.Count >= 0)
+
+       
+        if ((Vector2)transform.position != lastClickedPos && selectedUnitRTSList.Count >= 0 && RightClick == true)
         {
 
             float step = speed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, lastClickedPos, step);
 
+
+
         }
+       
     }
-    
+
+
+
     public static Vector3 GetMouseWorldPosition()
     {
         Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
